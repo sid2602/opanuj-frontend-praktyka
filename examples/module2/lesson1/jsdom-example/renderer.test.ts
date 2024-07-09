@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { renderItems } from './renderer';
 
 const users: User[] = [
@@ -24,5 +24,20 @@ describe('User renderer', () => {
     const container = document.createElement('div');
     renderItems(container, users);
     expect(Array.from(container.querySelectorAll('li'))).toHaveLength(2);
+  });
+
+  test('should render list of users', () => {
+    localStorage.setItem('userRole', 'admin');
+
+    const container = document.createElement('div');
+    renderItems(container, users);
+
+    users.forEach((item) => {
+      if (item.role === 'admin') {
+        expect(container.innerHTML).toContain(`Admin`);
+      }
+      expect(container.innerHTML).toContain(`Name: ${item.name},`);
+      expect(container.innerHTML).toContain(`Age: ${item.age}`);
+    });
   });
 });
