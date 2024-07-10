@@ -5,6 +5,7 @@ export class MainPage {
   private readonly page: Page;
   private readonly url = URLs.MAIN_PAGE;
   readonly navigation: Locator;
+  readonly mainMenu: Locator;
   private readonly featuredArticleExcerpt: Locator;
   private readonly searchInput: Locator;
 
@@ -13,7 +14,7 @@ export class MainPage {
     this.navigation = page.getByRole('navigation', {
       name: 'Personal tools',
     });
-
+    this.mainMenu = page.getByLabel('Main menu');
     this.featuredArticleExcerpt = page.locator('#mp-tfa');
 
     this.searchInput = page
@@ -56,5 +57,20 @@ export class MainPage {
 
   getNavigation() {
     return this.navigation;
+  }
+
+  getMainManu() {
+    return this.mainMenu;
+  }
+
+  async goToComunityPortal() {
+    await this.mainMenu.click();
+    await this.page.getByTitle('The hub for editors').click();
+  }
+
+  async gotToHelpDesk() {
+    await this.page
+      .getByRole('link', { name: 'Help desk', exact: true })
+      .click();
   }
 }
