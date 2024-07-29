@@ -1,11 +1,11 @@
 {
-  "name": "@przeprogramowani/design-tokens",
-  "version": "2.1.1",
-  "description": "Design tokens collection for Przeprogramowani Design System",
+  "name": "@sid2602/design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens collection for sid2602 Design System",
   "license": "MIT",
   "keywords": [
     "design tokens",
-    "przeprogramowani"
+    "sid2602"
   ],
   "files": [
     "dist",
@@ -45,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/przeprogramowani/opanuj-frontend-praktyka.git",
+    "url": "git+https://github.com/sid2602/opanuj-frontend-praktyka.git",
     "directory": "examples/module4/lesson2/design-tokens"
   },
   "publishConfig": {
